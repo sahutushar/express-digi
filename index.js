@@ -1,9 +1,9 @@
 // const express =('express') not going to work 
-
+import 'dotenv/config'
 import express from 'express'
 
 const app =express()
-const port = 3000
+const port = process.env.PORT || 3000
 
 // basic send the data 
 
@@ -68,9 +68,8 @@ app.put('/teas/:id',(req,res)=>{
 })
 
 
-//  delete tea 
-
 // Delete a tea
+
 app.delete('/teas/:id', (req, res) => {
   const index = teaData.findIndex(t => t.id === parseInt(req.params.id));
   if (index === -1) {
